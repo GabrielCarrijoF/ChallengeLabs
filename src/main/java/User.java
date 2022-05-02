@@ -3,8 +3,8 @@ import java.util.List;
 public class User {
 
   int userId;
-  List<Order> orders;
   String userName;
+  List<Order> orders;
 
   public int getUserId() {
     return userId;

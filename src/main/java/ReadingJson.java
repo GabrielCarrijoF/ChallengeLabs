@@ -12,7 +12,7 @@ public class ReadingJson {
   public static void main(String[] args) {
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    String line = "0000000070;Palmer Prosacco;0000000753;0000000003;1836.74;20210308";
+    String line = "0000000050;Palmer Prosacco;0000000753;0000000003;1836.74;20210308";
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
     User user = new User();
@@ -26,7 +26,7 @@ public class ReadingJson {
     List<Order> orders = new ArrayList<>();
 
     String userid = StringUtils.stripStart(split.get(0), "0");
-    String username = split.get(1);
+    String username = StringUtils.stripStart(split.get(1), "");
     String orderid = StringUtils.stripStart(split.get(2), "0");
     String productid = StringUtils.stripStart(split.get(3), "0");
     double value = Double.valueOf(split.get(4));
