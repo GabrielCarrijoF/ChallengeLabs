@@ -26,7 +26,7 @@ public class ReadingJson {
     List<Order> orders = new ArrayList<>();
 
     String userid = StringUtils.stripStart(split.get(0), "0");
-    String username = StringUtils.stripStart(split.get(1), "");
+    String username = split.get(1);
     String orderid = StringUtils.stripStart(split.get(2), "0");
     String productid = StringUtils.stripStart(split.get(3), "0");
     double value = Double.valueOf(split.get(4));
