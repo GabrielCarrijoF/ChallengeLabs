@@ -1,5 +1,8 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -9,7 +12,14 @@ import org.apache.commons.lang3.StringUtils;
 
 public class ReadingJson {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
+
+    //10 caracteres para id
+    //45 caracteres para nome
+    //10 caracteres para order id
+    //10 caracteres para product id
+    //12 caracteres para preço
+    // 8 caracteres para data
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String line = "0000000050;Palmer Prosacco;0000000753;0000000003;1836.74;20210308";
