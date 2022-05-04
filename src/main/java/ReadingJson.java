@@ -1,8 +1,6 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -28,8 +26,7 @@ public class ReadingJson {
     User user = new User();
     Order order = new Order();
     Product product = new Product();
-    Product product1 = new Product();
-    Product product2 = new Product();
+
 
     List<String> split = Arrays.asList(line.split(";"));
     List<Product> products = new ArrayList<>();
@@ -45,15 +42,7 @@ public class ReadingJson {
     product.setProduct_id(Integer.valueOf(productid));
     product.setValue(value);
 
-    product1.setProduct_id(Integer.valueOf(productid));
-    product1.setValue(value);
-
-    product2.setProduct_id(Integer.valueOf(productid));
-    product2.setValue(value);
-
     products.add(product);
-    products.add(product1);
-    products.add(product2);
 
     double total = 0;
     for (int i = 0; i < products.size(); i++) {
@@ -67,9 +56,11 @@ public class ReadingJson {
     order.setData(date);
     orders.add(order);
 
+
     user.setOrders(orders);
     user.setUserName(username);
     user.setUserId(Integer.valueOf(userid));
+
 
     String json = gson.toJson(user);
 
