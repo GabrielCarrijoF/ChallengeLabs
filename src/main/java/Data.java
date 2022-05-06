@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 
 public class Data {
 
@@ -19,6 +20,7 @@ public class Data {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
     List<String> linhasArquivo = Files.readAllLines(path);
+    List<UserDto> userDtos = new ArrayList<>();
     List<Product> products = new ArrayList<>();
     List<Order> orders = new ArrayList<>();
 
@@ -26,25 +28,35 @@ public class Data {
     Order order = new Order();
     Product product = new Product();
 
-
     for (String linha : linhasArquivo) {
 
       String userId = linha.substring(1, 10);
       String userName = linha.substring(11, 55);
       String orderId = linha.substring(56, 65);
-      String productId = linha.substring(66, 76);
+      String productId = linha.substring(66, 75);
       String value = linha.substring(77, 87);
       String date = linha.substring(87, 95);
 
-      user.setOrders(orders);
-      user.setUserName(userName.trim());
-      user.setUserId(Integer.valueOf(userId));
+      UserDto userDto = new UserDto();
 
+      
+      userDto.setUserId(StringUtils.stripStart(userId, "0"));
+      userDto.setUserName(userName.trim());
+      userDto.setOrders(orders);
 
-      String json = gson.toJson(user);
-
-      System.out.println(json);
+      userDtos.add(userDto);
+//
+//      userDto.setValue(StringUtils.stripStart(value, " "));
+//      userDto.setOrderId(StringUtils.stripStart(orderId, "0"));
+//      userDto.setDate(LocalDate.parse(date, formatter).toString());
+//      userDto.setProductId(StringUtils.stripStart(productId, "0"));
+//
+//      userDtos.add(userDto);
 
     }
+
+    String json = gson.toJson(userDtos);
+
+    System.out.println(json);
   }
 }
