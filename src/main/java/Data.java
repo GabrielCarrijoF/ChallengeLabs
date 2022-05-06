@@ -7,7 +7,11 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 
 public class Data {
@@ -21,12 +25,6 @@ public class Data {
 
     List<String> linhasArquivo = Files.readAllLines(path);
     List<UserDto> userDtos = new ArrayList<>();
-    List<Product> products = new ArrayList<>();
-    List<Order> orders = new ArrayList<>();
-
-    User user = new User();
-    Order order = new Order();
-    Product product = new Product();
 
     for (String linha : linhasArquivo) {
 
@@ -39,23 +37,22 @@ public class Data {
 
       UserDto userDto = new UserDto();
 
-      
       userDto.setUserId(StringUtils.stripStart(userId, "0"));
       userDto.setUserName(userName.trim());
-      userDto.setOrders(orders);
+      userDto.setProductId(StringUtils.stripStart(productId, "0"));
+      userDto.setOrderId(StringUtils.stripStart(orderId, "0"));
+      userDto.setValue(value.trim());
+      userDto.setDate(LocalDate.parse(date, formatter).toString());
 
       userDtos.add(userDto);
-//
-//      userDto.setValue(StringUtils.stripStart(value, " "));
-//      userDto.setOrderId(StringUtils.stripStart(orderId, "0"));
-//      userDto.setDate(LocalDate.parse(date, formatter).toString());
-//      userDto.setProductId(StringUtils.stripStart(productId, "0"));
-//
-//      userDtos.add(userDto);
-
     }
+    //   Chave       Valor
+    Map<String, List<UserDto>> userMap =
+        userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
 
-    String json = gson.toJson(userDtos);
+    
+
+    String json = gson.toJson(userMap);
 
     System.out.println(json);
   }
