@@ -46,11 +46,15 @@ public class Data {
 
       userDtos.add(userDto);
     }
+
+    //Percorrer o mapa userMap para cada valor da lista de userDto.
+    // Dentro do mapa montar uma lista de order depois dessa lista pronta agrupar as ordes em um mapa de orderId e List<order>
+    // Percorrer o mapa orderMap e para cada valor da lista de order vou monstar a lista de produtos adicionar lista
+    // de produtos na order e adicionar a lista de order no user
+
     //   Chave       Valor
     Map<String, List<UserDto>> userMap =
         userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
-
-    
 
     String json = gson.toJson(userMap);
 

@@ -1,14 +1,14 @@
 public class Product {
 
-  int product_id;
+  int productId;
   double value;
 
-  public int getProduct_id() {
-    return product_id;
+  public int getProductId() {
+    return productId;
   }
 
-  public void setProduct_id(final int product_id) {
-    this.product_id = product_id;
+  public void setProductId(final int productId) {
+    this.productId = productId;
   }
 
   public double getValue() {

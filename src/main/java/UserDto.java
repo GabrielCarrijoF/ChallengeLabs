@@ -8,15 +8,6 @@ public class UserDto {
   String productId;
   String value;
   String date;
-  List<Order> orders;
-
-  public List<Order> getOrders() {
-    return orders;
-  }
-
-  public void setOrders(final List<Order> orders) {
-    this.orders = orders;
-  }
 
   public String getUserId() {
     return userId;
@@ -64,5 +55,17 @@ public class UserDto {
 
   public void setDate(final String date) {
     this.date = date;
+  }
+
+  @Override
+  public String toString() {
+    return "UserDto{" +
+        "userId='" + userId + '\'' +
+        ", userName='" + userName + '\'' +
+        ", orderId='" + orderId + '\'' +
+        ", productId='" + productId + '\'' +
+        ", value='" + value + '\'' +
+        ", date='" + date + '\'' +
+        '}';
   }
 }

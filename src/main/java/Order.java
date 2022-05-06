@@ -3,16 +3,16 @@ import java.util.List;
 public class Order {
 
   double total;
-  int order_id;
+  int orderId;
   String data;
   List<Product> products;
 
-  public int getOrder_id() {
-    return order_id;
+  public int getOrderId() {
+    return orderId;
   }
 
-  public void setOrder_id(final int order_id) {
-    this.order_id = order_id;
+  public void setOrderId(final int orderId) {
+    this.orderId = orderId;
   }
 
   public double getTotal() {

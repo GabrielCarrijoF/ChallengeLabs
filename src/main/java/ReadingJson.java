@@ -39,7 +39,7 @@ public class ReadingJson {
     double value = Double.valueOf(split.get(4));
     String date = LocalDate.parse(split.get(5), formatter).toString();
 
-    product.setProduct_id(Integer.valueOf(productid));
+    product.setProductId(Integer.valueOf(productid));
     product.setValue(value);
 
     products.add(product);
@@ -52,7 +52,7 @@ public class ReadingJson {
 
     order.setProducts(products);
     order.setTotal(total);
-    order.setOrder_id(Integer.valueOf(orderid));
+    order.setOrderId(Integer.valueOf(orderid));
     order.setData(date);
     orders.add(order);
 
