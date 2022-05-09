@@ -19,7 +19,7 @@ public class Data {
   public static void main(String[] args) throws IOException {
 
     Path path = Paths.get(
-        "/home/gabriel/Git/LuizaLabs/ChallengeLabs/src/main/java/filesTxt/data.txt");
+            "/home/gabriel/Git/LuizaLabs/ChallengeLabs/src/main/java/filesTxt/data.txt");
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
@@ -54,7 +54,7 @@ public class Data {
 
     //   Chave       Valor
     Map<String, List<UserDto>> userMap =
-        userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
+            userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
 
     String json = gson.toJson(userMap);
 
