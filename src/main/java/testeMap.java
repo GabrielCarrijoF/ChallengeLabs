@@ -18,8 +18,8 @@ public class testeMap {
 
     public static void main(String[] args) throws IOException {
 
-    Path path = Paths.get(
-        "/home/gabriel/Git/LuizaLabs/ChallengeLabs/src/main/java/filesTxt/data.txt");
+        Path path = Paths.get(
+            "/home/gabriel/Git/LuizaLabs/ChallengeLabs/src/main/java/filesTxt/data.txt");
 
 //        Path path = Paths.get(
 //                "C:/Users/Gabriel/Desktop/ChallengeLabs-main/src/main/java/filesTxt/data.txt");
@@ -35,13 +35,14 @@ public class testeMap {
         Product product = new Product();
         UserDto userDto = null;
 
+        String value = null;
         for (String linha : linhasArquivo) {
 
             String userId = linha.substring(1, 10);
             String userName = linha.substring(11, 55);
             String orderId = linha.substring(56, 65);
             String productId = linha.substring(66, 75);
-            String value = linha.substring(77, 87);
+            value = linha.substring(77, 87);
             String date = linha.substring(87, 95);
 
             userDto = new UserDto();
@@ -63,8 +64,10 @@ public class testeMap {
 
         Map<String, List<UserDto>> userMap = userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
 
-        String json = gson.toJson(userMap);
+        userMap.forEach((s, userDtoList) -> {
+            String json = gson.toJson(userDtoList);
 
-        System.out.println(json);
+            System.out.println(json);
+        });
     }
 }
