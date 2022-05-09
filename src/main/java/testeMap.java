@@ -18,11 +18,11 @@ public class testeMap {
 
     public static void main(String[] args) throws IOException {
 
-//    Path path = Paths.get(
-//        "/home/gabriel/Git/LuizaLabs/ChallengeLabs/src/main/java/filesTxt/data.txt");
+    Path path = Paths.get(
+        "/home/gabriel/Git/LuizaLabs/ChallengeLabs/src/main/java/filesTxt/data.txt");
 
-        Path path = Paths.get(
-                "C:/Users/Gabriel/Desktop/ChallengeLabs-main/src/main/java/filesTxt/data.txt");
+//        Path path = Paths.get(
+//                "C:/Users/Gabriel/Desktop/ChallengeLabs-main/src/main/java/filesTxt/data.txt");
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
@@ -52,19 +52,14 @@ public class testeMap {
             userDtos.add(userDto);
         }
 
-        //Percorrer o mapa userMap para cada valor da lista de userDto.
-        // Dentro do mapa montar uma lista de order depois dessa lista pronta agrupar as ordes em um mapa de orderId e List<order>
-        // Percorrer o mapa orderMap e para cada valor da lista de order vou monstar a lista de produtos adicionar lista
-        // de produtos na order e adicionar a lista de order no user
-
         Map<String, List<UserDto>> userMap = userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
 
         userMap.forEach((s, userDtos1) -> {
             System.out.println(s);
         });
 
-        String json = gson.toJson(userMap);
-
-        System.out.println(json);
+//        String json = gson.toJson(userMap);
+//
+//        System.out.println(json);
     }
 }
