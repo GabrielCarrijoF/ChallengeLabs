@@ -30,7 +30,11 @@ public class testeMap {
         List<String> linhasArquivo = Files.readAllLines(path);
         List<UserDto> userDtos = new ArrayList<>();
 
+        User user = new User();
+        Order order = new Order();
+        Product product = new Product();
         UserDto userDto = null;
+
         for (String linha : linhasArquivo) {
 
             String userId = linha.substring(1, 10);
@@ -52,14 +56,15 @@ public class testeMap {
             userDtos.add(userDto);
         }
 
+        //Percorrer o mapa userMap para cada valor da lista de userDto.
+        // Dentro do mapa montar uma lista de order depois dessa lista pronta agrupar as ordes em um mapa de orderId e List<order>
+        // Percorrer o mapa orderMap e para cada valor da lista de order vou monstar a lista de produtos adicionar lista
+        // de produtos na order e adicionar a lista de order no user
+
         Map<String, List<UserDto>> userMap = userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
 
-        userMap.forEach((s, userDtos1) -> {
-            System.out.println(s);
-        });
+        String json = gson.toJson(userMap);
 
-//        String json = gson.toJson(userMap);
-//
-//        System.out.println(json);
+        System.out.println(json);
     }
 }
