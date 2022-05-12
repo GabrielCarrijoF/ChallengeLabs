@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONObject;
 
 public class Data {
 
@@ -51,11 +52,13 @@ public class Data {
     // de produtos na order e adicionar a lista de order no user
 
     //   Chave       Valor
-    Map<String, List<UserDto>> userMap =
-            userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
+    Map<String, List<UserDto>> userMap = userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
 
-    String json = gson.toJson(userMap);
 
-    System.out.println(json);
+    userMap.forEach((s, userDtoList) -> {
+      List<User> users = new ArrayList<>();
+      String json = gson.toJson(userDtoList);
+      System.out.println(json);
+    });
   }
 }

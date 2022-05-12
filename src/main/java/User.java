@@ -6,6 +6,11 @@ public class User {
   String userName;
   List<Order> orders;
 
+  public User(final int userId, final String userName) {
+    this.userId = userId;
+    this.userName = userName;
+  }
+
   public int getUserId() {
     return userId;
   }

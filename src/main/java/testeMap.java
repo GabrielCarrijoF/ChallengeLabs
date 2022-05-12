@@ -1,5 +1,9 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -30,9 +34,6 @@ public class testeMap {
         List<String> linhasArquivo = Files.readAllLines(path);
         List<UserDto> userDtos = new ArrayList<>();
 
-        User user = new User();
-        Order order = new Order();
-        Product product = new Product();
         UserDto userDto = null;
 
         String value = null;
@@ -57,16 +58,26 @@ public class testeMap {
             userDtos.add(userDto);
         }
 
+        //Map<String, List<UserDto>> userMap = userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
+
+
         //Percorrer o mapa userMap para cada valor da lista de userDto.
         // Dentro do mapa montar uma lista de order depois dessa lista pronta agrupar as ordes em um mapa de orderId e List<order>
-        // Percorrer o mapa orderMap e para cada valor da lista de order vou monstar a lista de produtos adicionar lista
-        // de produtos na order e adicionar a lista de order no user
+        // Percorrer o mapa orderMap e para cada valor da lista de order vou monstar a lista de produtos adicionar list de produtos na order e adicionar
+        // a lista de order no user
 
-        Map<String, List<UserDto>> userMap = userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
+        userDtos.stream().forEach(userDto1 -> {
+            Set<User> userList = new HashSet<>();
+            userList.add(new User(Integer.valueOf(userDto1.getUserId()), userDto1.getUserName()));
 
-        userMap.forEach((s, userDtoList) -> {
-            String json = gson.toJson(userDtoList);
+            List<User> ordeerUser= userList.stream().sorted().collect(Collectors.toList());
 
+            List<Order> ordersList = new ArrayList<>();
+            ordersList.add(new Order(Integer.valueOf(userDto1.getUserId()) ,Integer.valueOf(userDto1.getOrderId())));
+
+            List<Order> orderID = ordersList.stream().sorted().collect(Collectors.toList());
+
+            String json = gson.toJson(userDto1);
             System.out.println(json);
         });
     }
