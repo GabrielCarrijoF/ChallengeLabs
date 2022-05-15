@@ -2,22 +2,17 @@ import java.util.List;
 
 public class Order {
 
-  int userId;
+  String userId;
   double total;
-  int orderId;
+  String orderId;
   String data;
   List<Product> products;
 
-  public Order(final int orderId, final int userId) {
-    this.orderId = orderId;
-    this.userId = userId;
-  }
-
-  public int getOrderId() {
+  public String getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(final int orderId) {
+  public void setOrderId(final String orderId) {
     this.orderId = orderId;
   }
 
@@ -46,11 +41,11 @@ public class Order {
     this.products = products;
   }
 
-  public int getUserId() {
+  public String getUserId() {
     return userId;
   }
 
-  public void setUserId(final int userId) {
+  public void setUserId(final String userId) {
     this.userId = userId;
   }
 

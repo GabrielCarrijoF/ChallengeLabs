@@ -1,13 +1,13 @@
 public class Product {
 
-  int productId;
+  String productId;
   double value;
 
-  public int getProductId() {
+  public String getProductId() {
     return productId;
   }
 
-  public void setProductId(final int productId) {
+  public void setProductId(final String productId) {
     this.productId = productId;
   }
 

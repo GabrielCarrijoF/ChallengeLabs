@@ -2,20 +2,20 @@ import java.util.List;
 
 public class User {
 
-  int userId;
+  String userId;
   String userName;
   List<Order> orders;
 
-  public User(final int userId, final String userName) {
+  public User(final String userId, final String userName) {
     this.userId = userId;
     this.userName = userName;
   }
 
-  public int getUserId() {
+  public String getUserId() {
     return userId;
   }
 
-  public void setUserId(final int userId) {
+  public void setUserId(final String userId) {
     this.userId = userId;
   }
 

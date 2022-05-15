@@ -2,6 +2,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
@@ -52,7 +53,7 @@ public class testeMap {
             userDto.setUserName(userName.trim());
             userDto.setProductId(StringUtils.stripStart(productId, "0"));
             userDto.setOrderId(StringUtils.stripStart(orderId, "0"));
-            userDto.setValue(value.trim());
+            userDto.setValue(Double.valueOf(value.trim()));
             userDto.setDate(LocalDate.parse(date, formatter).toString());
 
             userDtos.add(userDto);
@@ -67,17 +68,12 @@ public class testeMap {
         // a lista de order no user
 
         userDtos.stream().forEach(userDto1 -> {
-            Set<User> userList = new HashSet<>();
-            userList.add(new User(Integer.valueOf(userDto1.getUserId()), userDto1.getUserName()));
 
-            List<User> ordeerUser= userList.stream().sorted().collect(Collectors.toList());
+        userDtos.stream().collect(Collectors.groupingBy(UserDto::getUserId));
+        userDtos.stream().collect(Collectors.groupingBy(UserDto::getOrderId));
 
-            List<Order> ordersList = new ArrayList<>();
-            ordersList.add(new Order(Integer.valueOf(userDto1.getUserId()) ,Integer.valueOf(userDto1.getOrderId())));
 
-            List<Order> orderID = ordersList.stream().sorted().collect(Collectors.toList());
-
-            String json = gson.toJson(userDto1);
+          String json = gson.toJson(userDtos);
             System.out.println(json);
         });
     }

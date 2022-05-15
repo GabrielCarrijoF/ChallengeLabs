@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.List;
 
 public class UserDto {
@@ -6,7 +7,7 @@ public class UserDto {
   String userName;
   String orderId;
   String productId;
-  String value;
+  double value;
   String date;
 
   public String getUserId() {
@@ -41,11 +42,11 @@ public class UserDto {
     this.productId = productId;
   }
 
-  public String getValue() {
+  public double getValue() {
     return value;
   }
 
-  public void setValue(final String value) {
+  public void setValue(final double value) {
     this.value = value;
   }
 
