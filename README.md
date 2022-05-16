@@ -1,3 +1,17 @@
-# Ditto
+<h1 align="center">Ditto</h1>
 
-![166621850-17ad7e68-c75e-4f7a-b04e-175aa44e6a59](https://user-images.githubusercontent.com/84852692/168655318-0e6cceee-b15a-4eab-b27d-65336cad51b1.jpg)
+<p align="center">
+<img height="450" width="500" src="https://user-images.githubusercontent.com/84852692/168655318-0e6cceee-b15a-4eab-b27d-65336cad51b1.jpg">
+</p>
+  
+</div>
+  
+  * Quem é Ditto: Ditto é um pokemon que pode reconstituir toda a sua estrutura celular para se transformar no que vê, mas volta ao normal quando relaxa. Faz coisas parecidas com a aplicação transformando uma lista de dados de TXT para JSON :)
+  
+  
+  * Aplicação: A aplicação foi criada a partir de um Desafio Tecnico no Luiza Labs, onde foi proposto uma solução para transformar uma tabela TXT em JSON usando conhecimentos para ter um resultado simples e funcional.
+  
+  * Execução: Para poder executar o projeto necessita do Java 17 instalado, e dar um clone na minha aplicação. 
+<div> 
+  
+  ##
