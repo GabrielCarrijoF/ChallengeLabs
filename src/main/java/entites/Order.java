@@ -1,11 +1,12 @@
+package entites;
+
 import java.util.List;
 
 public class Order {
 
-  String userId;
-  double total;
   String orderId;
   String data;
+  double total;
   List<Product> products;
 
   public String getOrderId() {
@@ -39,14 +40,6 @@ public class Order {
 
   public void setProducts(final List<Product> products) {
     this.products = products;
-  }
-
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(final String userId) {
-    this.userId = userId;
   }
 
 }

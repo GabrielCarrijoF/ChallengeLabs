@@ -1,3 +1,6 @@
+package entites;
+
+import entites.Order;
 import java.util.List;
 
 public class User {
@@ -5,11 +8,6 @@ public class User {
   String userId;
   String userName;
   List<Order> orders;
-
-  public User(final String userId, final String userName) {
-    this.userId = userId;
-    this.userName = userName;
-  }
 
   public String getUserId() {
     return userId;
