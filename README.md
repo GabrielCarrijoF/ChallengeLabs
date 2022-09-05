@@ -8,7 +8,7 @@
 
   * Aplicação: A aplicação foi criada a partir de um Desafio Tecnico no Luiza Labs, onde foi proposto uma solução para transformar uma tabela TXT em JSON usando conhecimentos para ter um resultado simples e funcional.
   
-  * Execução: Para poder executar o projeto necessita do Java 17 instalado,<b>importante dar um mvn clean install para que seja executado sem erros e conflitos</b> e dar um clone na minha aplicação. 
+  * Execução: Para poder executar o projeto necessita do Java 17 instalado,<b>importante dar um mvn clean install para que seja executado sem erros e conflitos</b>. 
   
 <div> 
   
